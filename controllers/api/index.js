@@ -3,8 +3,8 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const postRoutes = require('./postRoutes');
 
-// When a request is made to the /users or /posts path, it will be directed to the index.js in the /users or /projects folder.
+// When a request is made to the /users or /posts path, it will be directed to the index.js in the /users or /posts folder.
 router.use('/users', userRoutes);
-router.use('/posts', postRoutes);
+router.use('/post', postRoutes);
 
 module.exports = router;

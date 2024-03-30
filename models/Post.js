@@ -16,8 +16,8 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    body: {
-      type: DataTypes.STRING,
+    opus: {
+      type: DataTypes.STRING(2000),
     },
     date_created: {
       type: DataTypes.DATE,
