@@ -1,13 +1,13 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#post-name').value.trim();
-  const body = document.querySelector('#post-body').value.trim();
+  const title = document.querySelector('#post-title').value.trim();
+  const opus = document.querySelector('#post-opus').value.trim();
 
-  if (name && body) {
-    const response = await fetch(`/api/posts`, {
+  if (title && opus) {
+    const response = await fetch(`/api/post`, {
       method: 'POST',
-      body: JSON.stringify({ name, body }),
+      body: JSON.stringify({ title, opus }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -25,14 +25,14 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/post/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete post');
+      alert('Failed to delete comment');
     }
   }
 };

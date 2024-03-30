@@ -1,5 +1,37 @@
 <div class='text-center'>
-  <h2>{{title}}</h2>
-  <p>{{opus}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <h5><u>{{title}}</u></h5>
+  <h6 class='text-start'>{{opus}}</h6>
+  <h7>Created by {{user.name}} on {{format_date date_created}}</h7>
+</div>
+<div>
+  <div><form class='form new-post-comment-form'>
+      <div class='form-group'>
+        <label for='post-name'>Comment title:</label>
+        <input
+          class='form-input'
+          type='text'
+          id='comment-title'
+          name='comment-title'
+        />
+      </div>
+      <div class='form-group'>
+        <label for='post-body'>Tidbit:</label>
+        <textarea
+          class='form-input'
+          id='comment-tidbit'
+          name='comment-tidbit'
+        ></textarea>
+      </div>
+      <div class='form-group'>
+        <button type='submit' class='btn btn-primary'>Comment?</button>
+      </div>
+    </form>
+  </div>
+  {{#if loggedIn}}
+  <section class="flex-row justify-center">
+    {{#each post.comments as |comment|}}
+    {{> comment}}
+    {{/each}}
+    </section>
+    {{/if}}
 </div>

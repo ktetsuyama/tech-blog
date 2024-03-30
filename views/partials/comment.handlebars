@@ -1,0 +1,15 @@
+<section class='card'>
+  {{#if comments.length}}
+    <div class='col-md-6 comment-list'>
+      <h3>Comments:</h3>
+
+      {{#each comments as |comment|}}
+        <div class='row mb-2'>
+          <div class='col-md-8'>
+            <h4>{{comment.title}}</h4>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</section>
