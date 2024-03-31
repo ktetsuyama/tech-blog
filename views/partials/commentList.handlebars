@@ -1,0 +1,13 @@
+{{#if comments.length}}
+  <div class='comment-list'>
+    <h3>Comments:</h3>
+    <ul>
+      {{#each comments}}
+        <li>{{this.title}} - {{this.tidbit}}</li>
+        <p>{{this.date_created this.user.name}}</p>
+      {{/each}}
+    </ul>
+  </div>
+{{else}}
+  <p>No comments yet.</p>
+{{/if}}
