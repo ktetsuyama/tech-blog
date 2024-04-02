@@ -33,15 +33,18 @@ router.get('/post/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'id'],
         },
       ],
     });
-
+    let isPoster = false;
+    if (req.session.user_id === postData.user_id) {
+      isPoster = true;
+    }
     const post = postData.get({ plain: true });
-
     res.render('post', {
       ...post,
+      isPoster: isPoster,
       logged_in: req.session.logged_in,
     });
   } catch (err) {

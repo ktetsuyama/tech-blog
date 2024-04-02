@@ -1,13 +1,40 @@
-const editButtonHandler = async (event) => {
+let titleElement, opusElement;
+
+const editButtonHandler = (event) => {
+  event.preventDefault();
+
+  const postElement = document.querySelector('#post');
+
+  titleElement = postElement.querySelector('#post-title');
+  opusElement = postElement.querySelector('#post-opus');
+  const currentTitle = titleElement.textContent.trim();
+  const currentOpus = opusElement.textContent.trim();
+
+  titleElement.innerHTML = `<input type="text" class="post-title-input" value="" placeholder="${currentTitle}">`;
+  opusElement.innerHTML = `<textarea class="post-opus-input" placeholder="${currentOpus}"></textarea>`;
+
+  const editButton = document.querySelector('.btn-warning');
+  editButton.textContent = 'Submit';
+  editButton.removeEventListener('click', editButtonHandler);
+  editButton.addEventListener('click', submitButtonHandler);
+};
+
+const submitButtonHandler = async (event) => {
+  const title = titleElement.querySelector('.post-title-input').value.trim();
+  const opus = opusElement.querySelector('.post-opus-input').value.trim();
+  console.log(title);
+  console.log(opus);
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
     try {
-      const response = await fetch(`/post/${id}`, {
+      console.log('Request body:', { title, opus });
+      const response = await fetch(`/api/post/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ postId: id }),
+
+        body: JSON.stringify({ title, opus }),
       });
 
       if (response.ok) {
@@ -17,7 +44,7 @@ const editButtonHandler = async (event) => {
         alert(responseData.message || 'Failed to edit post');
       }
     } catch (error) {
-      console.error('Error editing post:', error);
+      console.log('Error editing post:', error);
       alert('An error occurred while editing post');
     }
   }
@@ -28,7 +55,7 @@ const delButtonHandler = async (event) => {
     const id = event.target.getAttribute('data-id');
 
     try {
-      const response = await fetch(`/post/${id}`, {
+      const response = await fetch(`/api/post/${id}`, {
         method: 'DELETE',
       });
 
@@ -45,10 +72,9 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.btn-warning')
-  .addEventListener('submit', editButtonHandler);
+const editButton = document.querySelector('.btn-warning');
+editButton.addEventListener('click', editButtonHandler);
 
 document
   .querySelector('.btn-danger')
-  .addEventListener('submit', delButtonHandler);
+  .addEventListener('click', delButtonHandler);
