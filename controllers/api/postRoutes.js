@@ -1,6 +1,7 @@
 const router = require('express').Router();
 // Import the post and comment model from the models folder
-const { Post, Comment } = require('../../models');
+const { Post } = require('../../models');
+const { getPostById } = require('../postUtils');
 const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -13,15 +14,22 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: Comment }],
+    const postData = await getPostById(req.params.id);
+
+    let isPoster = false;
+    if (req.session.user_id === postData.user_id) {
+      isPoster = true;
+    }
+
+    res.render('post', {
+      ...post,
+      isPoster,
+      logged_in: req.session.logged_in,
     });
-    res.status(200).json(postData);
-  } catch (error) {
-    console.error('Error fething post with comments:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

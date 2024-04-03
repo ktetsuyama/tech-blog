@@ -10,8 +10,8 @@ const editButtonHandler = (event) => {
   const currentTitle = titleElement.textContent.trim();
   const currentOpus = opusElement.textContent.trim();
 
-  titleElement.innerHTML = `<input type="text" class="post-title-input" value="" placeholder="${currentTitle}">`;
-  opusElement.innerHTML = `<textarea class="post-opus-input" placeholder="${currentOpus}"></textarea>`;
+  titleElement.innerHTML = `<input type="text" class="post-title-input" value="${currentTitle}">`;
+  opusElement.innerHTML = `<textarea class="post-opus-input">${currentOpus}</textarea>`;
 
   const editButton = document.querySelector('.btn-warning');
   editButton.textContent = 'Submit';

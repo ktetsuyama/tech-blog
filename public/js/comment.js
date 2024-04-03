@@ -5,9 +5,9 @@ const newFormHandler = async (event) => {
   const tidbit = document.querySelector('#comment-tidbit').value.trim();
 
   if (title && tidbit) {
-    const response = await fetch(`/api/post`, {
+    const response = await fetch(`/api/comment`, {
       method: 'POST',
-      body: JSON.stringify({ title, opus }),
+      body: JSON.stringify({ title, tidbit }),
       headers: {
         'Content-Type': 'application/json',
       },
