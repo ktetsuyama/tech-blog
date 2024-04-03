@@ -1,7 +1,6 @@
 const router = require('express').Router();
 // Import the post and comment model from the models folder
 const { Post } = require('../../models');
-const { getPostById } = require('../postUtils');
 const withAuth = require('../../utils/auth');
 
 // If a POST request is made to /api/posts, a new post is created. If there is an error, the function returns with a 400 error.
