@@ -4,35 +4,6 @@ const { Post } = require('../../models');
 const { getPostById } = require('../postUtils');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const posts = await Post.findAll();
-    res.status(200).json(posts);
-  } catch (error) {
-    console.error('Error fething posts with comments:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
-});
-
-router.get('/post/:id', async (req, res) => {
-  try {
-    const postData = await getPostById(req.params.id);
-
-    let isPoster = false;
-    if (req.session.user_id === postData.user_id) {
-      isPoster = true;
-    }
-
-    res.render('post', {
-      ...post,
-      isPoster,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // If a POST request is made to /api/posts, a new post is created. If there is an error, the function returns with a 400 error.
 router.post('/', withAuth, async (req, res) => {
   try {
