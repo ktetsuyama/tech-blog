@@ -26,13 +26,26 @@ The developer needs a front-end and a back-end to a blog site, that allows users
 
 I repurposed a basic website to suit the client's needs. This website utilizes a lot of the structure of a provided mini-project, but adjusted to serve the client's needs.
 
-Here is a video of the application in action:
+Here are some screenshots of the application:
 
-[Link to Video]()
+Main Page
+![Main Page](./assets/images/full%20screenshot.png)
+
+Login page
+![Login page](./assets/images/login%20page.png)
+
+Profile page
+![Profile page](./assets/images/Profile%20page.png)
+
+User made post
+![User made post](./assets/images/post%20edit%20and%20comment.png)
+
+Comment on non-user post
+![Comment on non-user post](./assets/images/post%20with%20comment.png)
 
 ## Contributors
 
-I used the mini-project for week 14 (Crowdfunding App) to complete this application, and I used phind.com to help with debugging.
+I used the mini-project for week 14 (Crowdfunding App) to complete this application, John's help in getting the comemnts to route and display properly, and I used phind.com to help with debugging.
 
 ## Contact
 

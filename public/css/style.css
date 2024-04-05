@@ -33,6 +33,21 @@ header,
   border-bottom: 1px solid #ccc;
 }
 
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
 .no-button {
   background: none;
   border: none;
