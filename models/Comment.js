@@ -12,17 +12,25 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    comment_title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     tidbit: {
       type: DataTypes.STRING(2000),
+      allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
     post_id: {
       type: DataTypes.INTEGER,
@@ -34,7 +42,7 @@ Comment.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'comment',

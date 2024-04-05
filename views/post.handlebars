@@ -34,15 +34,16 @@
         ></textarea>
       </div>
       <div class='form-group'>
+        <input type="hidden" name="id" id="postId" value="{{id}}">
         <button type='submit' class='mt-3 btn btn-primary'>Comment?</button>
       </div>
     </form>
   </div>
-  {{#if loggedIn}}
+  {{!-- {{#if loggedIn}} --}}
   <section class="flex-row justify-center">
-    {{> commentList comments=post.comments}}
+    {{> commentList }}
     </section>
-    {{/if}}
+  {{!-- {{/if}} --}}
 </div>
 
 <script src="/js/post.js"></script>

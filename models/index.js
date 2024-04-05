@@ -8,6 +8,12 @@ User.hasMany(Post, {
   onDelete: 'CASCADE',
 });
 
+// Creates a relationship between User and Comment model, with the User having a "has many" relationship with Comment model.
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
 // Creates a relationship between User and Post model, with a "belongs to" relationship of the Post to the User.
 Post.belongsTo(User, {
   foreignKey: 'user_id',
@@ -16,6 +22,17 @@ Post.belongsTo(User, {
 // Creates a relationship between Comment and Post model, with the Post having a "has many" relationship with Comment model.
 Post.hasMany(Comment, {
   foreignKey: 'post_id',
+  onDelete: 'CASCADE',
+});
+
+// Creates a relationship between Comment and Post model, with a "belongs to" relationship of the Post to the Comment.
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
+  onDelete: 'CASCADE',
+});
+
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
