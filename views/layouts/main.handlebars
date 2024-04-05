@@ -20,16 +20,33 @@
           <span role='img' aria-label='flying saucer'>🛸</span>
           <a href='/'>Gizmo Galaxy</a>
         </h1>
-        <nav>
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-            <a href='/profile'>My Profile</a>
-            |
-            <button class='no-button' id='logout'>logout</button>
-          {{else}}
-            <a href='/login'>login</a>
-            <a href='/profile'>My Profile</a>
-          {{/if}}
+        <nav class='navbar navbar-expand-lg'>
+          <div class='container-fluid'>
+            <div
+              class='collapse navbar-collapse justify-content-end'
+              id='navbarNav'
+            >
+              <ul class='navbar-nav'>
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                  <li class='nav-item' id='home'>
+                    <a href='/profile'>My Profile</a>
+                  </li>
+                  <li class='nav-item' id='logout'><button
+                      class='no-button'
+                      id='logout'
+                    >logout</button></li>
+                {{else}}
+                  <li class='nav-item' id='home'>
+                    <a href='/profile'>My Profile</a>
+                  </li>
+                  <li class='nav-item' id='logout'><a
+                      href='/login'
+                    >login</a></li>
+                {{/if}}
+              </ul>
+            </div>
+          </div>
         </nav>
       </header>
       <main class='container container-fluid mt-5'>

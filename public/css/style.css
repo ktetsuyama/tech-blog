@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8f6e3;
+  color: #111111;
+}
+
+.navbar {
+  background-color: #f8f6e3;
+}
+
+.nav-item {
+  background-color: #9290c3;
+  padding: 6px;
+  margin: 10px;
+  border-radius: 25px;
+  /* Box shadow to create depth */
+  box-shadow: inset -6px -4px 10px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link.active {
+  color: var(--link) !important;
+}
+
 header,
 .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
@@ -16,4 +46,26 @@ header,
 .no-button:hover {
   color: #065b83;
   text-decoration: underline;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  align-self: flex-start; /* Align button to the start of the flex container */
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }

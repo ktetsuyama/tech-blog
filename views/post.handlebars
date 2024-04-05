@@ -18,6 +18,7 @@
     <form class='form new-post-comment-form'>
       <div class='form-group'>
         <label for='post-name'>Comment title:</label>
+        </br>
         <input
           class='form-input'
           type='text'
@@ -26,7 +27,8 @@
         />
       </div>
       <div class='form-group'>
-        <label for='post-body'>Tidbit:</label>
+        <label for='post-body'>Comment tidbit:</label>
+        </br>
         <textarea
           class='form-input'
           id='comment-tidbit'
@@ -39,11 +41,10 @@
       </div>
     </form>
   </div>
-  {{!-- {{#if loggedIn}} --}}
+
   <section class="flex-row justify-center">
     {{> commentList }}
-    </section>
-  {{!-- {{/if}} --}}
+  </section>
 </div>
 
 <script src="/js/post.js"></script>
