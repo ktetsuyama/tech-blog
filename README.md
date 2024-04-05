@@ -60,3 +60,5 @@ Email: [kroyal.eisenberg@gmail.com](mailto:kroyal.eisenberg@gmail.com)
 This project is covered under the [![License: CC BY-SA  4.0](https://licensebuttons.net/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 Learn more about this license [here](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Thank you for reading.
